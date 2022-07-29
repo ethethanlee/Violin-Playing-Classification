@@ -7,7 +7,7 @@ cap = cv2.VideoCapture('nahhh.mp4') #allPizz_almost.mp4
 frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 frameWidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 frameHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-vidObj = cv2.VideoCapture('nahhh.mp4')
+# vidObj = cv2.VideoCapture('nahhh.mp4')
 frame = np.empty((frameCount, frameHeight, frameWidth, 3), np.dtype('uint8'))
 
 fc = 0
@@ -28,7 +28,7 @@ while success:
     # value = input("Please enter a string:\n")
  
     # print(f'You entered {value}')
-    success, frame = vidObj.read()
+    success, frame = cap.read()
     cv2.namedWindow('frame ' + str(i+1))
     cv2.imshow('frame ' + str(i+1), frame)
     # cv2.waitKey(0)
@@ -42,5 +42,8 @@ while success:
     #     folder = 'pizz'
     folder = 'more'
     # Save Frame by Frame into disk using imwrite method
-    cv2.imwrite('newData/'+ folder + '/newFrameeeehhhhhh'+str(i)+'.jpg', frame)
-    print('frame done')
+    if i%47 == 0:
+        cv2.imwrite('3ClassesData/'+ folder + '/newFrame'+str(i)+'.jpg', frame)
+        print('frame done')
+    else:
+        print('sad')

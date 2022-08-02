@@ -11,11 +11,13 @@ sensor.set_framesize(sensor.QVGA)      # Set frame size to QVGA (320x240)
 sensor.set_windowing((200, 200))       # Set 240x240 window.
 sensor.skip_frames(time=2000)          # Let the camera adjust.
 
-#net = tf.load('tf_lite_model_quantized10MB.tflite', load_to_fb=True)
-net = tf.load('tf_lite_model_jul24.tflite', load_to_fb=True)
- #net = tf.load('tf_lite_model_new_10MBe-2.tflite', load_to_fb=True)
- #net = tf.load('person_detection', load_to_fb=True)
-labels = [0, 1, 2]
+#net = tf.load('tf_lite_model_aug1.tflite', load_to_fb=True)
+#net = tf.load('tensorflow-lite-float32-model.lite', load_to_fb=True)
+#net = tf.load('tensorflow-lite-int8-quantized-model.lite', load_to_fb=True)
+net = tf.load('tf_lite_model_quantized-4.tflite', load_to_fb=True)
+#net = tf.load('model.tflite', load_to_fb=True)
+#net = tf.load('person_detection', load_to_fb=True)
+labels = [0, 1]
 
  #try: # Load labels if they exist
      #labels = [line.rstrip('\n') for line in open("labels.txt")]
@@ -27,7 +29,7 @@ colors = [ # Add more colors if you are detecting more than 7 types of classes a
  (255,   0,   0), #playing
  (  0, 255,   0), #not
  #(255, 255,   0), #col
- (  0,   0, 255), #pizz
+ #(  0,   0, 255), #pizz
  #(255,   0,   0),
  #(255, 0, 255), #fuschia
  #(255, 0, 255),
